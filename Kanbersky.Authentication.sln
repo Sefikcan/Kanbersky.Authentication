@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanbersky.Authentication.Core", "Kanbersky.Authentication.Core\Kanbersky.Authentication.Core.csproj", "{6249F960-F026-4BAF-B12C-3A35445A0A58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanbersky.Authentication.DAL", "Kanbersky.Authentication.DAL\Kanbersky.Authentication.DAL.csproj", "{5046C4AB-F73E-40DB-B2D2-EE14CD5260CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanbersky.Authentication.Business", "Kanbersky.Authentication.Business\Kanbersky.Authentication.Business.csproj", "{3B6BBDD2-BFE8-4DE6-9D0E-6FACFE9190A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanbersky.Authentication.Entities", "Kanbersky.Authentication.Entities\Kanbersky.Authentication.Entities.csproj", "{DE402DF5-4962-46BC-80A3-33A1F8AF63AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanbersky.Authentication.Api", "Kanbersky.Authentication.Api\Kanbersky.Authentication.Api.csproj", "{BA8CEF46-867F-48F0-826D-A3FB6DD47486}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6249F960-F026-4BAF-B12C-3A35445A0A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6249F960-F026-4BAF-B12C-3A35445A0A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6249F960-F026-4BAF-B12C-3A35445A0A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6249F960-F026-4BAF-B12C-3A35445A0A58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5046C4AB-F73E-40DB-B2D2-EE14CD5260CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5046C4AB-F73E-40DB-B2D2-EE14CD5260CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5046C4AB-F73E-40DB-B2D2-EE14CD5260CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5046C4AB-F73E-40DB-B2D2-EE14CD5260CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B6BBDD2-BFE8-4DE6-9D0E-6FACFE9190A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6BBDD2-BFE8-4DE6-9D0E-6FACFE9190A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6BBDD2-BFE8-4DE6-9D0E-6FACFE9190A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6BBDD2-BFE8-4DE6-9D0E-6FACFE9190A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE402DF5-4962-46BC-80A3-33A1F8AF63AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE402DF5-4962-46BC-80A3-33A1F8AF63AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE402DF5-4962-46BC-80A3-33A1F8AF63AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE402DF5-4962-46BC-80A3-33A1F8AF63AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA8CEF46-867F-48F0-826D-A3FB6DD47486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8CEF46-867F-48F0-826D-A3FB6DD47486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8CEF46-867F-48F0-826D-A3FB6DD47486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8CEF46-867F-48F0-826D-A3FB6DD47486}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9ED7F513-4AEE-4075-9699-5DF1951166B1}
+	EndGlobalSection
+EndGlobal

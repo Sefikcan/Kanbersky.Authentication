@@ -1,0 +1,13 @@
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\bin\Debug\netcoreapp2.2\Kanbersky.Authentication.Core.dll
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\bin\Debug\netcoreapp2.2\Kanbersky.Authentication.Entities.dll
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\obj\Debug\netcoreapp2.2\Kanbersky.Authentication.DAL.AssemblyInfoInputs.cache
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\obj\Debug\netcoreapp2.2\Kanbersky.Authentication.DAL.AssemblyInfo.cs
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\bin\Debug\netcoreapp2.2\Kanbersky.Authentication.DAL.deps.json
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\bin\Debug\netcoreapp2.2\Kanbersky.Authentication.DAL.dll
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\bin\Debug\netcoreapp2.2\Kanbersky.Authentication.DAL.pdb
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\bin\Debug\netcoreapp2.2\Kanbersky.Authentication.Core.pdb
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\bin\Debug\netcoreapp2.2\Kanbersky.Authentication.Entities.pdb
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\obj\Debug\netcoreapp2.2\Kanbersky.Authentication.DAL.csprojAssemblyReference.cache
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\obj\Debug\netcoreapp2.2\Kanbersky.Authentication.DAL.csproj.CopyComplete
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\obj\Debug\netcoreapp2.2\Kanbersky.Authentication.DAL.dll
+D:\WorkSpaces\Microservices\Kanbersky.Authentication\Kanbersky.Authentication.DAL\obj\Debug\netcoreapp2.2\Kanbersky.Authentication.DAL.pdb
