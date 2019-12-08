@@ -30,31 +30,27 @@ namespace Kanbersky.Authentication.Api.Controllers
 
         #region get operations
 
-        [AllowAnonymous]
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody]UserAuthenticateRequest request)
-        {
-            //User login success gibi düşünelim.
-            
-            var user = await _userService.Authenticate(request);
-            if (!user.Success)
-            {
-                return BadRequest(user.Message);
-            }
-
-            return Ok(user);
-        }
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var result = await _userService.GetAll();
-            return Ok(result.Data);
+            return Ok(result);
         }
 
         #endregion
 
         #region post operations
+
+
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody]UserAuthenticateRequest request)
+        {
+            //User login success gibi düşünelim.
+
+            var user = await _userService.Authenticate(request);
+            return Ok(user);
+        }
 
         #endregion
 

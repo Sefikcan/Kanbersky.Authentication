@@ -3,9 +3,9 @@ using Kanbersky.Authentication.Business.Abstract;
 using Kanbersky.Authentication.Business.DTO.Request;
 using Kanbersky.Authentication.Business.DTO.Response;
 using Kanbersky.Authentication.Core.Helpers;
-using Kanbersky.Authentication.Core.Utilities.Result;
 using Kanbersky.Authentication.DAL.Concrete.EntityFramework.GenericRepository;
 using Kanbersky.Authentication.Entities.Concrete;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -21,7 +21,7 @@ namespace Kanbersky.Authentication.Business.Concrete
     {
         #region fields
 
-        private readonly AppSettings _appSettings;
+        private readonly IConfiguration _configuration;
         private readonly IGenericRepository<User> _repository;
         private readonly IMapper _mapper;
 
@@ -29,9 +29,9 @@ namespace Kanbersky.Authentication.Business.Concrete
 
         #region ctor
 
-        public UserService(IOptions<AppSettings> appSettings,IGenericRepository<User> repository,IMapper mapper)
+        public UserService(IConfiguration configuration,IGenericRepository<User> repository,IMapper mapper)
         {
-            _appSettings = appSettings.Value;
+            _configuration = configuration;
             _repository = repository;
             _mapper = mapper;
         }
@@ -40,16 +40,23 @@ namespace Kanbersky.Authentication.Business.Concrete
 
         #region methods
 
-        public async Task<IDataResult<UserAuthenticateResponse>> Authenticate(UserAuthenticateRequest userAuthenticateRequest)
+        public async Task<UserAuthenticateResponse> Authenticate(UserAuthenticateRequest userAuthenticateRequest)
         {
+            var secretKey = _configuration["AppSettings:Secret"].ToString();
             //TODO:Add Hash operations
             var user = await _repository.Get(x => x.UserName == userAuthenticateRequest.UserName && x.Password == userAuthenticateRequest.Password);
 
             if (user == null)
-                return new ErrorDataResult<UserAuthenticateResponse>();
+            {
+                return new UserAuthenticateResponse
+                {
+                    Message = "User Not Found",
+                    Success = false
+                };
+            }
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var key = Encoding.ASCII.GetBytes(secretKey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
@@ -61,25 +68,25 @@ namespace Kanbersky.Authentication.Business.Concrete
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            UserAuthenticateResponse response = new UserAuthenticateResponse
+            var response = new UserAuthenticateResponse
             {
                 UserName = user.UserName,
                 Token = tokenHandler.WriteToken(token)
             };
 
-            return new SuccessDataResult<UserAuthenticateResponse>(_mapper.Map<UserAuthenticateResponse>(response));
+            return _mapper.Map<UserAuthenticateResponse>(response);
         }
 
-        public async Task<IDataResult<List<UserListResponse>>> GetAll()
+        public async Task<List<UserListResponse>> GetAll()
         {
-            var response = await _repository.GetList(null);
-            return new SuccessDataResult<List<UserListResponse>>(_mapper.Map<List<UserListResponse>>(response));
+            var response = await _repository.GetList();
+            return _mapper.Map<List<UserListResponse>>(response);
         }
 
-        public async Task<IDataResult<UserListResponse>> GetById(int id)
+        public async Task<UserListResponse> GetById(int id)
         {
             var response = await _repository.Get(x => x.Id == id);
-            return new SuccessDataResult<UserListResponse>(_mapper.Map<UserListResponse>(response));
+            return _mapper.Map<UserListResponse>(response);
         }
 
         #endregion

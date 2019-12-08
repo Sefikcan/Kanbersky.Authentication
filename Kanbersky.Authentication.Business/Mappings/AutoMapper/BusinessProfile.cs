@@ -1,10 +1,12 @@
-﻿using AutoMapper;
+﻿using System.Diagnostics.CodeAnalysis;
+using AutoMapper;
 using Kanbersky.Authentication.Business.DTO.Request;
 using Kanbersky.Authentication.Business.DTO.Response;
 using Kanbersky.Authentication.Entities.Concrete;
 
 namespace Kanbersky.Authentication.Business.Mappings.AutoMapper
 {
+    [ExcludeFromCodeCoverage]
     public class BusinessProfile:Profile
     {
         public BusinessProfile()

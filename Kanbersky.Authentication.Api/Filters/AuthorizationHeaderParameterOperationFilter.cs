@@ -2,10 +2,12 @@
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Kanbersky.Authentication.Api.Filters
 {
+    [ExcludeFromCodeCoverage]
     public class AuthorizationHeaderParameterOperationFilter : IOperationFilter
     {
         public void Apply(Operation operation, OperationFilterContext context)

@@ -16,30 +16,30 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Kanbersky.Authentication.Api
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
+        private IConfiguration _configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            var appSettingsSection = Configuration.GetSection("AppSettings");
-            services.Configure<AppSettings>(appSettingsSection);
+            var appSettingsSection = _configuration.GetSection("AppSettings").GetSection("Secret").Value;
 
-            var appSettings = appSettingsSection.Get<AppSettings>();
-            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            var key = Encoding.ASCII.GetBytes(appSettingsSection);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -75,7 +75,7 @@ namespace Kanbersky.Authentication.Api
 
             services.AddDbContext<KanberContext>(opt =>
             {
-                opt.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]);
+                opt.UseSqlServer(_configuration["ConnectionStrings:DefaultConnection"]);
             });
 
             var mappingConfig = new MapperConfiguration(mc =>
@@ -105,7 +105,7 @@ namespace Kanbersky.Authentication.Api
                 });
                 c.SwaggerDoc("v1", new Info
                 {
-                    Title = "Kanbersky.Authentication Microservice",
+                    Title = "Kanbersky Authentication Microservice",
                     Version = "v1"
                 });
             });

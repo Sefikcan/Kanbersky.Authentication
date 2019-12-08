@@ -4,12 +4,14 @@ using Kanbersky.Authentication.Entities.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Kanbersky.Authentication.DAL.Concrete.EntityFramework.GenericRepository
 {
+    [ExcludeFromCodeCoverage]
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, IEntity,new()
     {
         #region fields
@@ -70,7 +72,7 @@ namespace Kanbersky.Authentication.DAL.Concrete.EntityFramework.GenericRepositor
             return await _context.Set<TEntity>().FirstOrDefaultAsync(expression);
         }
 
-        public async Task<List<TEntity>> GetList(Expression<Func<TEntity, bool>> expression)
+        public async Task<List<TEntity>> GetList(Expression<Func<TEntity, bool>> expression=null)
         {
             return expression == null ?
                 await _context.Set<TEntity>().ToListAsync() :

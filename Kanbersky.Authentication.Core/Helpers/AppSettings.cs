@@ -1,7 +1,15 @@
-﻿namespace Kanbersky.Authentication.Core.Helpers
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Kanbersky.Authentication.Core.Helpers
 {
-    public class AppSettings
+    [ExcludeFromCodeCoverage]
+    public abstract class AppSettings
     {
-        public string Secret { get; set; }
+        protected AppSettings(string secret)
+        {
+            Secret = secret;
+        }
+
+        public string Secret { get; }
     }
 }

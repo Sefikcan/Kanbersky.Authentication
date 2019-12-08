@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Kanbersky.Authentication.DAL.Migrations
 {
+    [ExcludeFromCodeCoverage]
     [DbContext(typeof(KanberContext))]
     partial class KanberContextModelSnapshot : ModelSnapshot
     {

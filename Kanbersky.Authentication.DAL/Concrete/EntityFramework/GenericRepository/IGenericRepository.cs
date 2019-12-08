@@ -11,7 +11,7 @@ namespace Kanbersky.Authentication.DAL.Concrete.EntityFramework.GenericRepositor
     {
         Task<T> Get(Expression<Func<T, bool>> expression);
 
-        Task<List<T>> GetList(Expression<Func<T, bool>> expression);
+        Task<List<T>> GetList(Expression<Func<T, bool>> expression=null);
 
         Task<T> Add(T entity);
 

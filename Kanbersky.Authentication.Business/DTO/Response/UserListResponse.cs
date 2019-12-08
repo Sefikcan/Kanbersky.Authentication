@@ -1,5 +1,8 @@
-﻿namespace Kanbersky.Authentication.Business.DTO.Response
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Kanbersky.Authentication.Business.DTO.Response
 {
+    [ExcludeFromCodeCoverage]
     public class UserListResponse
     {
         public string FirstName { get; set; }

@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Kanbersky.Authentication.DAL.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class initialusers : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

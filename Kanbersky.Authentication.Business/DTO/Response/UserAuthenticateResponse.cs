@@ -1,6 +1,9 @@
-﻿namespace Kanbersky.Authentication.Business.DTO.Response
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Kanbersky.Authentication.Business.DTO.Response
 {
-    public class UserAuthenticateResponse
+    [ExcludeFromCodeCoverage]
+    public class UserAuthenticateResponse:BaseResponseModel
     {
         public string UserName { get; set; }
 
