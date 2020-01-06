@@ -2,7 +2,7 @@ FROM microsoft/dotnet:2.2-sdk as build-env
 WORKDIR /app
 
 WORKDIR /Kanbersky.Authentication.Api
-COPY *.csproj ./
+COPY *.csproj
 RUN dotnet restore
 
 COPY ../
