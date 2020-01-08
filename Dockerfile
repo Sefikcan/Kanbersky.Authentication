@@ -3,7 +3,7 @@ COPY . /app
 WORKDIR /app
  
 RUN ["dotnet", "restore"]
-RUN ["dotnet", "./Kanbersky.Authentication.Api.dll/"]
+RUN ["dotnet", "../Kanbersky.Authentication.Api.dll/"]
 
 EXPOSE 5000/tcp
 ENV ASPNETCORE_URLS http://*:5000
