@@ -1,15 +1,16 @@
-FROM microsoft/dotnet:2.2-sdk as build-env
+FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /app
 
-WORKDIR /Kanbersky.Authentication.Api
-COPY *.csproj
+COPY *.csproj ./
 RUN dotnet restore
 
-COPY ../
+COPY . ./
 RUN dotnet publish -c Release -o out
 
-FROM microsoft/dotnet:2.2-aspnetcore-runtime
-WORKDIR /app
-COPY --from=build-env /app/out .
+FROM microsoft/dotnet:2.2-aspnetcore-runtime AS runtime
 
-CMD ASPNETCORE_URL=http://*:$PORT dotnet Kanbersky.Authentication.Api.dll
+WORKDIR /app
+
+COPY --from=build /app/out .
+
+ENTRYPOINT ["dotnet","Kanbersky.Authentication.Api.dll"]
