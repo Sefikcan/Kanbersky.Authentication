@@ -1,16 +1,11 @@
-FROM microsoft/dotnet:2.2-sdk AS build
+FROM microsoft/dotnet:latest
+COPY . /app
 WORKDIR /app
+ 
+RUN ["dotnet", "restore"]
+RUN ["dotnet", "publish", "./Kanbersky.Authentication.Api.dll/"]
 
-COPY *.csproj ./
-RUN dotnet restore
+EXPOSE 5000/tcp
+ENV ASPNETCORE_URLS http://*:5000
 
-COPY . ./
-RUN dotnet publish -c Release -o out
-
-FROM microsoft/dotnet:2.2-aspnetcore-runtime AS runtime
-
-WORKDIR /app
-
-COPY --from=build /app/out .
-
-ENTRYPOINT ["dotnet","Kanbersky.Authentication.Api.dll"]
+ENTRYPOINT ["dotnet","./Kanbersky.Authentication.Api/bin/Debug/netcoreapp2.2/publish/Kanbersky.Authentication.Api.dll"]
