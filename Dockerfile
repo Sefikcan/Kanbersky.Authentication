@@ -1,6 +1,5 @@
 FROM microsoft/dotnet:2.2-sdk AS build
-WORKDIR /app
- 
+WORKDIR /app/Kanbersky.Authentication.Api 
 COPY *.csproj ./
 RUN dotnet restore
  
